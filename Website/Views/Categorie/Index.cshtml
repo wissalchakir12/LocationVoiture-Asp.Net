@@ -1,0 +1,28 @@
+﻿@model List<Models.CategorieVM>
+
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Adjust as needed */
+    }
+
+    .card {
+        width: calc(33.33% - 20px); /* 20px is the margin between cards, adjust as needed */
+        margin-bottom: 20px; /* Adjust as needed */
+    }
+</style>
+
+<div class="card-container">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="~/images/Categories/@item.Image" class="card-img-top" alt="@item.Image">
+            <div class="card-body">
+                <h5 class="card-title" style="color:orange;">@item.Name</h5>
+                <p class="card-text" style="font-size: 13px">@item.Description</p>
+                <a href="#" class="btn btn-primary" style="background-color: orange; border-color: orange;">Parcourir</a>
+            </div>
+        </div>
+    }
+</div>
