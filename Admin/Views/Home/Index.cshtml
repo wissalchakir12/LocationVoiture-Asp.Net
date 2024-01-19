@@ -1,0 +1,24 @@
+﻿@model List<Models.CategorieVM>
+<style>
+	body {
+		background-color: lightgray;
+	}
+</style>
+<a asp-controller="Home" asp-action="Create" class="btn btn-primary" style="margin-bottom:20px">Create</a>
+
+@foreach (var item in Model)
+{
+	<div class="card" style="margin-bottom:30px;">
+		<div class="card-header">
+			Id = @item.Id
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">@item.Name</h5>
+			<p class="card-text">@item.Description</p>
+			<a asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+			<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-primary" style="background-color:red">Delete</a>
+		</div>
+	</div>
+
+}
+

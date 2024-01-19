@@ -1,0 +1,65 @@
+﻿
+
+body {
+    background: linear-gradient(to bottom right,#E7BCDE 40%,#67729D);
+}
+.container {
+    display:flex;
+    justify-content : center;
+    align-items:flex-start;
+    height:90vh;
+    flex-direction:column;
+}
+
+.container * {
+    margin : 1rem;
+}
+
+.box1 input {
+    margin-left:40px;
+}
+
+.name {
+    width : 14vw;
+    border:1px solid lightgrey;
+    border-radius : 20px;
+    height : 4vh;
+}
+
+.desc {
+    width: 40vw;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    height: 20vh;
+    resize:none;
+}
+.box2 {
+    display:flex;
+    margin:0;
+    
+    
+}
+.box2 label {
+    align-self:center
+}
+
+.box3 input {
+    width: 14vw;
+    border: 1px solid lightgrey;
+    border-radius: 20px;
+    height: 4vh;
+    margin-left:60px;
+}
+
+.button {
+    border: 1px solid lightgrey;
+    border-radius: 25px;
+    background-color: #BB9CC0;
+    width: 10rem;
+    height: 3rem;
+    font-size: 16px;
+}
+
+    .button:hover {
+        background-color: #E7BCDE;
+    }

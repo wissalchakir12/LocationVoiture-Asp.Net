@@ -1,28 +1,47 @@
-﻿@model List<Models.CategorieVM>
+﻿<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
 
-<style>
+        margin: 5px; 
+    }
+
     .card-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between; /* Adjust as needed */
+        justify-content: space-between;
+        margin-top: 20px; /* Add margin to the top */
+       
     }
 
     .card {
-        width: calc(33.33% - 20px); /* 20px is the margin between cards, adjust as needed */
-        margin-bottom: 20px; /* Adjust as needed */
+        width: calc(30% - 20px); /* Adjust the width as needed */
+        margin-bottom: 20px;
+        box-sizing: border-box; /* Include padding and border in the total width */
     }
+
+    
 </style>
 
-<div class="card-container">
-    @foreach (var item in Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img src="~/images/Categories/@item.Image" class="card-img-top" alt="@item.Image">
-            <div class="card-body">
-                <h5 class="card-title" style="color:orange;">@item.Name</h5>
-                <p class="card-text" style="font-size: 13px">@item.Description</p>
-                <a href="#" class="btn btn-primary" style="background-color: orange; border-color: orange;">Parcourir</a>
+<body>
+    <div class="card-container">
+        @foreach (var item in Model)
+        {
+            <div class="card" style="width: 20rem; height: 100%;">
+                <img src="~/images/Categories/@item.Image" class="card-img-top" alt="@item.Image" style="height: 150px;object-fit:cover;"> <!-- Set a fixed height for the image -->
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title" style="color: orange;">@item.Name</h5>
+                    <p class="card-text" style="font-size: 13px;">@item.Description</p>
+                    <div class="mt-auto">
+                        <a asp-controller="Voiture" asp-action="Index" asp-route-id="@item.Id" class="btn btn-primary" style="background-color: orange; border-color: orange;">Parcourir</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    }
-</div>
+
+
+        }
+    </div>
+
+    
+</body>

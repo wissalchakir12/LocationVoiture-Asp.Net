@@ -1,0 +1,179 @@
+﻿.bg-custom {
+    background-color: whitesmoke;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+span {
+    color: orange
+}
+
+.box0 {
+    margin:3rem;
+    display:flex;
+    flex-direction:row;
+}
+
+.box-image {
+    width:60%;
+    border:1px solid lightgrey;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:10px 10px 5px lightgrey;
+}
+.box-text {
+    margin-left:2rem;
+    width:50%;
+}
+
+
+
+.box-text * {
+    padding-left: 3rem;
+    padding-bottom: 2rem;
+}
+.louer-button {
+    margin-left:2rem;
+    padding:0;
+    width:10rem;
+    height:3rem;
+    border:1px solid orange;
+    background-color:orange;
+    border-radius:50px;
+}
+.image {
+    width:100%;
+    object-fit:cover;
+}
+.sidebar {
+    margin:2rem;
+    position:sticky;
+    justify-content:center;
+    align-items:center;
+}
+
+.animatezoom {
+    transition: transform 0.3s ease-in-out;
+}
+.animatezoom:hover {
+        transform: scale(1.05);
+}
+
+.body .image-hero-container {
+    position: relative;
+    width: 100%; /* Set the width of the container */
+    z-index: 0;
+}
+
+#color {
+    font-family: "Quicksand";
+    color: black;
+}
+
+.bg-custom span {
+    color: orange;
+}
+
+#color {
+    font-family: "Quicksand";
+    color: black;
+    font-weight: bold;
+    font-size: 22px
+}
+
+
+.navbar-nav .nav-item .nav-link-custom {
+    margin-right: 25px;
+}
+
+#color:hover {
+    color: orange;
+}
+
+    #color:hover:first-letter {
+        color: orange;
+    }
+
+
+
+.hero-block {
+    position: relative;
+}
+
+.image-hero {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center top;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+
+.text-perso {
+    position: absolute;
+    margin-top: 13%;
+    color: black;
+    font-family: "Quicksand";
+    font-weight: bold;
+    font-size: 35px;
+}
+
+    .text-perso h1 {
+        font-size: 40px;
+    }
+
+.footer {
+    background-color: whitesmoke;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    background-color: rgba(255, 255, 255,0.3);
+
+}
+
+
+
+.attractive-btn:hover {
+    background-color: #e07b00;
+}
+
+.navbar {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+    .ml-lg-custom {
+        margin-left: 20rem;
+    }
+}
+
+@media(max-width:1120px) {
+    .navbar-nav .nav-item button {
+        display: none;
+    }
+}
+
+@media(max-width:645px) {
+    .navbar-nav .nav-item {
+        font-size: 8px;
+    }
+}

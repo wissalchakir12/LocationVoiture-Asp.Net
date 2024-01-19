@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\Voitures\" />
+  </ItemGroup>
+
 </Project>
