@@ -44,8 +44,7 @@ namespace DAL.Repos
 
         public void Update(Categorie categorie)
         {
-            db.Categories.Attach(categorie);
-            db.Categories.Entry(categorie).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.Categories.Update(categorie);
             db.SaveChanges();
         }
 

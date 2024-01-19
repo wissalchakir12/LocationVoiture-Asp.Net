@@ -8,12 +8,13 @@ namespace BLL
 {
     public class CategorieService
     {
-        public List<Models.CategorieVM> ListVM()
+		static CategorieRepos cat = new CategorieRepos();
+		public List<Models.CategorieVM> ListVM()
         {
-            var categorieRepos = new CategorieRepos();
+            
             List<CategorieVM> repostomodel = new List<CategorieVM>();
             
-            foreach(var vm in categorieRepos.All()) 
+            foreach(var vm in cat.All()) 
             {
                 CategorieVM item = new CategorieVM();
                 item.Name = vm.Name;
@@ -27,7 +28,7 @@ namespace BLL
         } 
         public void AddCategorie(CategorieVM item)
         {
-            CategorieRepos cat = new CategorieRepos();
+            
             Categorie categorie = new Categorie
             {
                 Name = item.Name,
@@ -39,29 +40,14 @@ namespace BLL
         }
 
 
-		public void UpdateCategorie(CategorieVM item)
-		{
-			CategorieRepos cat = new CategorieRepos();
-			Categorie categorie = new Categorie
-			{
-				Name = item.Name,
-				Description = item.Description,
-				Image = item.Image
-			};
-			cat.Update(categorie);
-		}
-
-
 		public void SupprimerCategorie(int id)
 		{
-			CategorieRepos categorieRepos = new CategorieRepos();
-			categorieRepos.Delete(id);
+			cat.Delete(id);
 		}
-
+        
 
         public CategorieVM GetCategorie(int id)
         {
-            CategorieRepos cat = new CategorieRepos();
             Categorie data =  cat.Get(id);
             CategorieVM ret = new CategorieVM()
             {
@@ -73,5 +59,17 @@ namespace BLL
             return ret;
 
         }
+        public void UpdateCategorie(CategorieVM item)
+		{
+             
+			 Categorie categorie = new Categorie
+			 {
+                 ID=item.Id,
+                 Name = item.Name,       
+                 Description = item.Description,
+				 Image = item.Image
+			 };
+			 cat.Update(categorie);
+		}
 	}
 }

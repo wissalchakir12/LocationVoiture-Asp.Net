@@ -5,7 +5,7 @@
 @if(Model != null)
 {
 <form asp-controller="Home" asp-action="Update" method="post">
-
+		<input type="hidden" value="@Model.Id" asp-for="@Model.Id" />
 	<div class="container">
 		<div class="box1">
 			Categorie : <input class="name" value="@Model.Name" asp-for="@Model.Name">

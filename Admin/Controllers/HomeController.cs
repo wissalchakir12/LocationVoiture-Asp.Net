@@ -55,13 +55,13 @@ namespace Admin.Controllers
 			return View(cate);
 		}
 
+
 		[HttpPost]
 		public IActionResult Update(CategorieVM model)
 		{
 			try
 			{
 				CategorieService categorieService = new CategorieService();
-
 				categorieService.UpdateCategorie(model);
 				return RedirectToAction("Index");
 			}
