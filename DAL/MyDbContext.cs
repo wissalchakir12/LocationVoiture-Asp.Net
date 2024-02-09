@@ -12,7 +12,7 @@ namespace DAL
     {
         public DbSet<Categorie> Categories { get; set; }
         public DbSet<Voiture> Voitures { get; set; }
-        public DbSet<Auth> Auths { get; set; }
+        public DbSet<Utilisateur> Utilisateurs { get; set; }
         protected override void OnConfiguring
      (DbContextOptionsBuilder optionsBuilder)
         {

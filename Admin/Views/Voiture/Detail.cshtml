@@ -1,8 +1,7 @@
 ﻿@model Models.VoitureVM
 @{
-	ViewData["Title"] = "Details";
+	ViewData["Title"] = "Detail de voiture";
 }
-
 <div class="box0">
 	<div class="box-image animatezoom"><img src="~/images/Voitures/@Model.Image" alt="@Model.Image" class="image" /></div>
 	<div class="box-text">
@@ -11,11 +10,12 @@
 		@if (Model.Est_Dispo == true)
 		{
 			<p style="color:lightgreen; font-weight:bold">Voiture en stock</p>
+			
 		}
 		else
 		{
 			<p style="color:red">Rupture de Stock</p>
 		}
-		<button class="louer-button animatezoom">Louer Voiture</button>
+		
 	</div>
 </div>

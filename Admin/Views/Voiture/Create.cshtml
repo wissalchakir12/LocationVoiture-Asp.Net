@@ -1,0 +1,39 @@
+﻿
+@model Models.VoitureVM
+@{
+	ViewData["Title"] = "Create Voiture";
+}
+<link rel="stylesheet" href="~/css/form.css">
+
+<form asp-controller="Voiture" asp-action="Create" method="post">
+
+	<div class="container">
+
+		<div class="box1">
+			Name : <input class="name" asp-for="@Model.Name">
+		</div>
+
+		<div class="box2">
+			<label>Description :</label>  <textarea name="description" class="desc" id="" cols="30" rows="10" asp-for="@Model.Description"></textarea>
+		</div>
+
+		<div class="box1">
+			CategorieId : <input class="name" type="number" asp-for="@Model.CategorieId">
+		</div>
+
+		<div class="box1">
+			Prix : <input class="name" asp-for="@Model.Prix">
+		</div>
+
+		<div class="box1">
+			Disponibilité : <input class="name" asp-for="@Model.Est_Dispo">
+		</div>
+
+		<div class="box3">
+			image : <input type="text" asp-for="@Model.Image">
+		</div>
+
+
+		<input class="button" type="submit" value="Save" />
+	</div>
+</form>

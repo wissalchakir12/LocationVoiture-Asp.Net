@@ -21,6 +21,29 @@ namespace DAL.Repos
         {
             return db.Voitures.Find(id);
         }
+
+        public void Create(Voiture voiture) 
+        {
+            db.Voitures.Add(voiture);
+            db.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            db.Remove(db.Voitures.Find(id));
+            db.SaveChanges() ;
+        }
+
+        public void Update(Voiture voiture)
+        {
+            db.Update(voiture);
+            db.SaveChanges() ;
+        }
+
+        public Voiture Get(int Id)
+        {
+            return db.Voitures.Find(Id);
+        }
     }
     
 }

@@ -61,15 +61,12 @@ namespace BLL
         }
         public void UpdateCategorie(CategorieVM item)
 		{
-             
-			 Categorie categorie = new Categorie
-			 {
-                 ID=item.Id,
-                 Name = item.Name,       
-                 Description = item.Description,
-				 Image = item.Image
-			 };
-			 cat.Update(categorie);
+
+            Categorie categorie = cat.Get(item.Id);
+            categorie.Name = item.Name;
+            categorie.Description = item.Description;
+            categorie.Image = item.Image; 
+			cat.Update(categorie);
 		}
 	}
 }

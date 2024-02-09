@@ -11,6 +11,7 @@ namespace BLL
 {
     public class VoitureService
     {
+
         public List<VoitureVM> ListVoiture(int idCategorie)
         {
             VoitureRepos cat=new VoitureRepos();
@@ -22,6 +23,7 @@ namespace BLL
                 v.Name=item.Name;
                 v.Description=item.Description;
                 v.Image = item.Image;
+                v.CategorieId = item.CategorieId;
                 l.Add(v);
                 
 
@@ -43,5 +45,56 @@ namespace BLL
             
             return obj;
         }
+
+        public void Create(VoitureVM voiture)
+        {
+            VoitureRepos voitureRepos = new VoitureRepos();
+            Voiture voiture1 = new Voiture
+            {
+                Id = voiture.Id,
+                Name = voiture.Name,
+                Description = voiture.Description,
+                CategorieId = voiture.CategorieId,
+                Image = voiture.Image
+            };
+            voitureRepos.Create(voiture1);
+        }
+
+        public void Delete(int Id)
+        {
+            VoitureRepos voitureRepos=new VoitureRepos();
+            voitureRepos.Delete(Id);
+        }
+
+        public void Update(VoitureVM voiture)
+        {
+            VoitureRepos voitureRepos = new VoitureRepos();
+            Voiture voiture1 = voitureRepos.Get(voiture.Id);
+            if (voiture1 != null)
+            {
+                voiture1.Prix = voiture.Prix;
+                voiture1.EstDispo = voiture.Est_Dispo;
+                voiture1.Description = voiture.Description;
+                voiture1.Image = voiture.Image;
+                voiture1.Name = voiture.Name;
+                voitureRepos.Update(voiture1);
+            }
+           
+        }
+
+        public VoitureVM Get(int Id)
+        {
+            VoitureRepos voitureRepos = new VoitureRepos();
+            Voiture rep = voitureRepos.Get(Id);
+            VoitureVM v = new VoitureVM();
+            v.Id = Id;
+            v.Name = rep.Name;
+            v.Description = rep.Description;
+            v.Image = rep.Image;
+            v.Est_Dispo = rep.EstDispo;
+            v.CategorieId = rep.CategorieId;
+            return v;
+        }
+
     }
 }

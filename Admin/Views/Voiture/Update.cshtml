@@ -1,14 +1,12 @@
 ﻿﻿
-@model Models.CategorieVM
-
+@model Models.VoitureVM
 @{
-	ViewData["Title"] = "Create";
+	ViewData["Title"] = "Modifier voiture";
 }
-
 <link rel="stylesheet" href="~/css/form.css">
 
-<form asp-controller="Home" asp-action="Create" method="post">
-	  
+<form asp-controller="Voiture" asp-action="Update" method="post">
+
 	<div class="container">
 		<div class="box1">
 			Categorie : <input class="name" asp-for="@Model.Name">
@@ -16,6 +14,18 @@
 
 		<div class="box2">
 			<label>Description :</label>  <textarea name="description" class="desc" id="" cols="30" rows="10" asp-for="@Model.Description"></textarea>
+		</div>
+
+		<div class="box1">
+			CategorieId : <input class="name" type="text" asp-for="@Model.CategorieId">
+		</div>
+
+		<div class="box1">
+			Prix : <input class="name" asp-for="@Model.Prix">
+		</div>
+
+		<div class="box1">
+			Disponibilité : <input class="name" asp-for="@Model.Est_Dispo">
 		</div>
 
 		<div class="box3">

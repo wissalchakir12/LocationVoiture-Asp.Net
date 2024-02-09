@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace DAL.Repos
 {
-	public class UtilisateurRepos
-	{
-		public List<Auth> All()
-		{
-			MyDbContext db = new MyDbContext();	
-			return db.Auths.ToList();
-		}
-	}
+    public class UtilisateurRepos
+    {
+        static MyDbContext db = new MyDbContext();
+        public List<Utilisateur> All()
+        {
+            return db.Utilisateurs.ToList();
+        }
+    }
 }

@@ -4,9 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using Models;
 using System.Diagnostics;
 using DAL.Entity;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Admin.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
@@ -57,6 +61,7 @@ namespace Admin.Controllers
 
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Update(CategorieVM model)
 		{
 			try
@@ -81,7 +86,17 @@ namespace Admin.Controllers
 		}
 
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+
+
+        public async Task<IActionResult> LogOut()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Auth");
+        }
+
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

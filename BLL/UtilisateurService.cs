@@ -3,45 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Repos;
 using Models;
+using DAL.Repos;
 
 namespace BLL
-	
 {
+    public class UtilisateurService
+    {
+        static UtilisateurRepos utilisateurRepos = new UtilisateurRepos();
+        public List<AuthVM> ListVM()
+        {
+            List<AuthVM> list = new List<AuthVM>();
+            foreach (var item in utilisateurRepos.All())
+            {
+                AuthVM vm = new AuthVM();
+                vm.Email = item.Email;
+                vm.PassWord = item.PassWord;
+                vm.KeepLoggedIn = item.KeepLoggedIn;
+                list.Add(vm);
+            }
+            return list;
+        }
 
-	/// <summary>
-	/// La création d'une session pour un utilisateur existant et retourne null pour un user non existant
-	/// </summary>
-	public class UtilisateurService
-	{
-		public Session? VerifierCompte(UserAuthVM user)
-		{
-			UtilisateurRepos us = new UtilisateurRepos();
-			
-			
-				var Result=us.All().Where(a => a.Password == user.Password && a.Email == user.Email)
-						.FirstOrDefault();
-			if (us != null)
-			{
-				Session session = new Session();
-				session.Email= user.Email;
-				session.Password= user.Password;
-				return session;
-
-			}
-			return null;
-
-				
-			
-				
-
-				
-
-
-			
-		}
-		
-
-	}
+    }
 }
